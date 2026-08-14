@@ -1,0 +1,36 @@
+/* Farmstand 1959 — type tokens
+   Faces are declared in tokens/fonts.css. A script leads this brand:
+   the word "Farmstand" is set in the script and nothing else is.
+   The script is a flowing cursive (Yellowtail), not a poster face.
+   Label tracking is .08em: Barlow Condensed is already narrow and does not
+   need the wide track the substitute face did. */
+:root{
+--font-script:"Yellowtail","Brush Script MT",cursive;
+--font-display:'Playfair Display',Georgia,'Times New Roman',serif;
+--font-label:"Barlow Condensed","Arial Narrow",sans-serif;
+--font-body:'Newsreader',Georgia,serif;
+/* Field-notes hand. Captions, margin notes, chalked lines. Never a paragraph. */
+--font-hand:'Caveat','Bradley Hand',cursive;
+
+--fs-script-xl:84px;--fs-script-lg:56px;--fs-script-md:36px;--fs-script-sm:24px;
+--fs-display-xl:52px;--fs-display-lg:38px;--fs-display-md:27px;--fs-display-sm:20px;
+--fs-body-lg:19px;--fs-body:17px;--fs-body-sm:15px;
+--fs-label-lg:15px;--fs-label:13px;--fs-label-sm:11px;
+--fs-hand-lg:34px;--fs-hand-md:24px;--fs-hand-sm:18px;
+
+--lh-script:1; /* @kind font */
+--lh-display:1.15; /* @kind font */
+--lh-body:1.6; /* @kind font */
+--lh-label:1.3; /* @kind font */
+
+--track-caps:.14em; /* @kind font */
+--track-label:.08em; /* @kind font */
+--track-display:.02em; /* @kind font */
+--track-body:0; /* @kind font */
+
+--fw-body:400; /* @kind font */
+--fw-body-bold:700; /* @kind font */
+--fw-display:600; /* @kind font */
+--fw-display-bold:700; /* @kind font */
+--fw-label:600; /* @kind font */
+}

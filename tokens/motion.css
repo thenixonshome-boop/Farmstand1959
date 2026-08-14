@@ -1,0 +1,16 @@
+/* Farmstand 1959 — motion
+   No springs, no parallax, no scroll-triggered reveals. */
+:root{
+--dur-press:90ms; /* @kind other */
+--dur-hover:160ms; /* @kind other */
+--dur-panel:240ms; /* @kind other */
+--dur-image:420ms; /* @kind other */
+--ease:cubic-bezier(.2,0,.2,1); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+:root{--dur-press:0ms; /* @kind other */
+--dur-hover:0ms; /* @kind other */
+--dur-panel:0ms; /* @kind other */
+--dur-image:0ms; /* @kind other */
+}
+}

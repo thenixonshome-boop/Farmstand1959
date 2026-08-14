@@ -1,0 +1,50 @@
+/* Farmstand 1959 — colour tokens v2
+   Five named colours from the 2026 brand board. Every ramp is built from
+   the labelled hex at -500. Nothing outside these five is a brand colour. */
+:root{
+/* --- CHILI #B23A2E — the script, the loud bar, sold-out boards, one CTA per view --- */
+--chili-900:#5a1a13;--chili-800:#7a241b;--chili-700:#942f25;--chili-600:#a5342a;
+--chili-500:#b23a2e;--chili-400:#c4604f;--chili-300:#d68b7c;--chili-200:#e8bcb2;--chili-100:#f5e2dc;
+
+/* --- DENIM #233E62 — the stamped ink. Structure, rules, footers, reading copy --- */
+--denim-900:#0d1727;--denim-800:#16263d;--denim-700:#1c3150;--denim-600:#1f3859;
+--denim-500:#233e62;--denim-400:#3d5b84;--denim-300:#6c87ab;--denim-200:#a6b7cf;
+--denim-100:#d6dee9;--denim-50:#edf1f6;
+
+/* --- SAGE #6E7A5E — growing things. Open status, produce, quiet fields --- */
+--sage-900:#2e3427;--sage-800:#414937;--sage-700:#545e45;--sage-600:#616c52;
+--sage-500:#6e7a5e;--sage-400:#8c9780;--sage-300:#aeb6a3;--sage-200:#cbd1c4;--sage-100:#e7eae2;
+
+/* --- BUTTERMILK #F1E9D4 — the ground. Never white, never black on white --- */
+--paper-000:#fbf7ec;--paper-100:#f1e9d4;--paper-200:#e8dec4;--paper-300:#dacEAF;
+--paper-400:#c7b896;--paper-500:#ae9e7c;
+--buttermilk:#f1e9d4;
+
+/* --- TIN #A7A09A — weathered galvanised. Closed states, disabled, captions --- */
+--tin-900:#3a3633;--tin-700:#5e5954;--tin-500:#a7a09a;--tin-300:#c6c1bc;--tin-100:#e4e1de;
+
+/* --- Semantic aliases --- */
+--brand:var(--denim-500);--brand-strong:var(--denim-700);--brand-soft:var(--denim-100);
+--brand-accent:var(--chili-500);--brand-accent-strong:var(--chili-700);
+--brand-script:var(--chili-500);
+
+--surface-page:var(--paper-100);--surface-card:var(--paper-000);--surface-sunk:var(--paper-200);
+--surface-band:var(--paper-200);--surface-field:var(--sage-100);
+--surface-inverse:var(--denim-500);--surface-accent:var(--chili-500);
+
+--text-body:var(--denim-800);--text-muted:var(--denim-400);--text-faint:var(--tin-700);
+--text-brand:var(--denim-500);--text-accent:var(--chili-500);
+--text-on-brand:var(--paper-100);--text-on-accent:var(--paper-100);
+
+--border-hairline:var(--paper-300);--border-strong:var(--denim-500);--border-muted:var(--paper-400);
+--focus-ring:var(--denim-400);
+
+--status-open:var(--sage-500);--status-closed:var(--tin-500);
+--status-soldout:var(--chili-500);--status-delay:var(--tin-700);
+--success:var(--sage-500);--success-soft:var(--sage-100);
+--danger:var(--chili-600);--danger-soft:var(--chili-100);
+--info:var(--denim-500);--info-soft:var(--denim-100);
+
+--overlay-protect:linear-gradient(to top,rgba(13,23,39,.82) 0%,rgba(13,23,39,.42) 42%,rgba(13,23,39,0) 100%); /* @kind other */
+--overlay-scrim:rgba(13,23,39,.62); /* @kind color */
+}

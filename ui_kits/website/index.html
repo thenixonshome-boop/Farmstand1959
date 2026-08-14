@@ -1,0 +1,64 @@
+<!-- @dsCard group="Website" viewport="1280x900" name="Farmstand 1959 site" subtitle="Home, shelf, growers, events, vendors, visit — click the nav" -->
+<!-- @startingPoint section="Website" subtitle="Farmstand 1959 public site — six screens" viewport="1280x900" -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Farmstand 1959 — website</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+  body{background-image:var(--texture-paper);background-size:var(--texture-paper-size)}
+  a{color:var(--chili-500);text-decoration:none}
+  a:hover{color:var(--chili-700)}
+  ::selection{background:var(--denim-500);color:var(--paper-100)}
+</style>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../ds-loader.js"></script>
+<script src="vendor-store.js"></script>
+<script>
+/* PhotoSlot ships in the bundle. This guard only fires in the window between the
+   component being authored and the bundle being recompiled — it keeps the kit
+   renderable and is inert once window.DS.PhotoSlot exists. */
+window.DSReady && window.DSReady.then(function () {
+  if (window.DS && window.DS.PhotoSlot) return;
+  var h = React.createElement;
+  window.DS.PhotoSlot = function (p) {
+    var grain = h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'var(--texture-grain)', backgroundSize: 'var(--texture-grain-size)' } });
+    var inner = p.src
+      ? h('img', { src: p.src, alt: p.alt || '', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: p.position || '50% 50%', filter: p.strong ? 'var(--photo-faded-strong)' : 'var(--photo-faded)' } })
+      : h('div', { style: { position: 'absolute', inset: 0, backgroundColor: 'var(--paper-300)', backgroundImage: 'var(--texture-canvas)', backgroundSize: 'var(--texture-canvas-size)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'var(--sp-5)' } },
+          h('span', { style: { fontFamily: 'var(--font-hand)', fontSize: 'var(--fs-hand-md)', lineHeight: 1.25, color: 'var(--tin-700)', textAlign: 'center', maxWidth: '26ch' } }, p.note));
+    return h('div', { style: Object.assign({ position: 'relative', aspectRatio: p.ratio || '4 / 3', overflow: 'hidden', background: 'var(--paper-300)' }, p.style) }, inner, grain, p.children);
+  };
+});
+</script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#233E62"/><circle cx="50" cy="50" r="27" fill="none" stroke="#F1E9D4" stroke-width="1.6"/><text x="50" y="45" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#F1E9D4" letter-spacing="1">FARM</text><text x="50" y="59" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#B23A2E">1959</text></svg>
+</template>
+<div id="root"></div>
+<script type="text/x-jsx" src="About.jsx"></script>
+<script type="text/x-jsx" src="Home.jsx"></script>
+<script type="text/x-jsx" src="Shelf.jsx"></script>
+<script type="text/x-jsx" src="Growers.jsx"></script>
+<script type="text/x-jsx" src="Events.jsx"></script>
+<script type="text/x-jsx" src="Vendors.jsx"></script>
+<script type="text/x-jsx" src="Visit.jsx"></script>
+<script type="text/x-jsx">
+const SCREENS = { 'Howdy y’all': 'About', 'The stand': 'Home', Shelf: 'Shelf', Growers: 'Growers', Events: 'Events', Yeehaw: 'Vendors', Vendors: 'Vendors', Visit: 'Visit' };
+function Site() {
+  const [screen, setScreen] = React.useState('Home');
+  const go = (label) => setScreen(SCREENS[label] || label);
+  const View = window.FSKit[screen] || window.FSKit.Home;
+  React.useEffect(() => { window.scrollTo(0, 0); }, [screen]);
+  return <View go={go} />;
+}
+window.DSReady.then(() => ReactDOM.createRoot(document.getElementById('root')).render(<Site />));
+</script>
+</body>
+</html>
